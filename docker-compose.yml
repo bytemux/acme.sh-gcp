@@ -1,0 +1,14 @@
+version: '2'
+
+services:
+  acme.sh:
+    image: bytemux/acme.sh-gcp:latest
+    environment:
+      - CLOUDSDK_CORE_DISABLE_PROMPTS=1
+      - CLOUDSDK_ROOT_DIR=/usr/local/bin
+    command: daemon
+    volumes:
+      - /opt/docker/acme.sh:/acme.sh
+    network_mode: "host"
+    restart: always
+    container_name: acme.sh
